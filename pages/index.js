@@ -6,7 +6,7 @@ class Index extends React.Component {
     constructor(){
         super();
         this.state = {
-            title: 'StartupIndex page'
+            title: 'Startup page'
         }
 
     }
