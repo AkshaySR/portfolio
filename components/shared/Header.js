@@ -8,40 +8,43 @@ class Header extends React.Component {
         debugger;
         const title = this.props.title;
 
-        return(
-           <React.Fragment>
-
-               <p className='customClass'> { title } </p>
-               <p className='customClass'> Checking styles </p>
-               {this.props.children}
-               <Link href="/">
-                   <a style = {{'fontSize' : '20px'}}> Home </a>
-               </Link>
-               <Link href="/about">
-                   <a> About </a>
-               </Link>
-               <Link href="/portfolio">
-                   <a> portfolio </a>
-               </Link>
-               <Link href="/cv">
-                   <a> CV </a>
-               </Link>
-               <Link href="/blogs">
-                   <a> Blogs </a>
-               </Link>
-               {/*<style jsx>
-                   {
-                       a {
-                         font-size:20px
+        return (
+            <React.Fragment>
+                <p className='customClass'> { title } </p>
+                <p className='customClassFromFile'> Checking styles </p>
+                {this.props.children}
+                <Link href="/">
+                    <a style = {{'fontSize' : '30px'}}> Home </a>
+                </Link>
+                <Link href="/about">
+                    <a> About </a>
+                </Link>
+                <Link href="/portfolio">
+                    <a> portfolio </a>
+                </Link>
+                <Link href="/cv">
+                    <a> CV </a>
+                </Link>
+                <Link href="/blogs">
+                    <a> Blogs </a>
+                </Link>
+                <style jsx>
+                    {
+                        `
+                        a {
+                         font-size:50px
                         };
                        .customClass {
-                            color:red;
+                            color:green;
                         }
-                   }
-               </style>*/}
-           </React.Fragment>
+                       
+                       `
+                    }
+                </style>
+            </React.Fragment>
         )
+        }
     }
-}
 
 export default Header;
+
