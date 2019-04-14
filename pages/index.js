@@ -1,28 +1,45 @@
 import React from 'react';
 import BaseLayout from "../components/layouts/BaseLayout";
+import SuperComponent from "../components/SuperComponent"
 
-class Index extends React.Component {
+import axios from 'axios';
+
+
+class Index extends SuperComponent {
+
+    static async getInitialProps(){
+        let userData ={};
+       try{
+           const response = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
+           userData = response.data;
+       }catch(err){
+           console.log(err);
+       }
+        return {intialData: [1,2,3,4],userData};
+    }
 
     constructor(){
         super();
         this.state = {
             title: 'Startup page'
-        }
+        };
+
 
     }
 
-    updateTitle(){
+    updateTitle = () => {
         this.setState({title:'I am Updated Index page'});
-    }
+    };
 
     render(){
-        console.log('render');
+        const { title } = this.state;
+        const {userData, intialData} = this.props;
 
         return (
                 <BaseLayout>
                     <h1 className='fromPage'>I am index page from class components</h1>
-                    <h2>{this.state.title}</h2>
-                    <button onClick= {() => this.updateTitle()}>Change Title</button>
+                    <h2>{userData.title}</h2>
+                    <button onClick= {this.updateTitle}>Change Title</button>
                     <p>Hello Next.js</p>
                 </BaseLayout>
         )
